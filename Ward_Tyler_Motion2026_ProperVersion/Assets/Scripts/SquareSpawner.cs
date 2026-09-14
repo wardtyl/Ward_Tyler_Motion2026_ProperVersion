@@ -27,11 +27,11 @@ public class SquareSpawner : MonoBehaviour
         //    Debug.DrawLine(aTransform.position, bTransform.position, Color.red);
         //}
 
-        bool Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        if (mousePos == true)
-        {
-            Debug.DrawLine(aTransform.position, bTransform.position, Color.magenta);
-        }
+        //bool Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        //if (mousePos == true)
+        //{
+        //    Debug.DrawLine(aTransform.position, bTransform.position, Color.magenta);
+        //}
 
     }
 }
