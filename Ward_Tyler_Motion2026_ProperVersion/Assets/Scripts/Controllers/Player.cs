@@ -9,17 +9,17 @@ public class Player : MonoBehaviour
     public Transform enemyTransform;
     public GameObject bombPrefab;
     public Transform bombsTransform;
-    public Vector2 spawnOffset;
+    public Vector3 bombOffset;
 
     void Update()
     {
-        //if (Keyboard.current.bKey.wasPressedThisFrame)
+        if (Keyboard.current.bKey.wasPressedThisFrame)
             //isPressed, wasPressedThisFrame, wasReleasedThisFrame
-               //{
+               {
             //Vector2 spawnOffset = new Vector2(0, 1);
-            //SpawnBombAtOffset(new Vector2(0, 1);
+            SpawnBombAtOffset(new Vector2(0, 1));
             //SpawnBombAtOffset(Vector.up);
-        //}
+                }
         //SpawnBombAtOffset(Keyboard.current.bKey.wasPressedThisFrame);
     }
 
@@ -29,11 +29,11 @@ public class Player : MonoBehaviour
     //    {
     //        Instantiate
     //    }
-    //}
+    //
 
-    public static float InstantJump(Vector2 vector)
+    public void SpawnBombAtOffset(Vector3 inOffset)
     {
-
+        Instantiate(bombPrefab);
     }
 
 }
