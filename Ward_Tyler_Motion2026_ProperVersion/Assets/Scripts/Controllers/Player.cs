@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public GameObject bombPrefab;
     public Transform bombsTransform;
     public Vector3 bombOffset;
-
+    //public Vector2 warpRatio;
     void Update()
     {
         if (Keyboard.current.bKey.wasPressedThisFrame)
@@ -46,5 +46,10 @@ public class Player : MonoBehaviour
         Vector2 spawnPos3 = new Vector2(-50, -50);
         Instantiate(bombPrefab, spawnPos3, Quaternion.identity);
     }
+
+    //public void WarpPlayer(Transform target, float ratio)
+    //{
+
+    //}
 
 }
