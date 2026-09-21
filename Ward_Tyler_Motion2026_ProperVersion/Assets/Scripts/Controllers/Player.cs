@@ -17,23 +17,34 @@ public class Player : MonoBehaviour
             //isPressed, wasPressedThisFrame, wasReleasedThisFrame
                {
             //Vector2 spawnOffset = new Vector2(0, 1);
-            SpawnBombAtOffset(new Vector2(0, 1));
+            //SpawnBombAtOffset(new Vector2(0, 1));
             //SpawnBombAtOffset(Vector.up);
-                }
-        //SpawnBombAtOffset(Keyboard.current.bKey.wasPressedThisFrame);
+
+            //SpawnBombOnRandomCorner(new Vector2(0, 1));
+
+        }
     }
 
-    //public void SpawnBombAtOffset(Vector3 inOffset)
-    //{
-    //    if(Keyboard.current.bKey.wasPressedThisFrame)
-    //    {
-    //        Instantiate
-    //    }
-    //
+ 
 
     public void SpawnBombAtOffset(Vector3 inOffset)
     {
         Instantiate(bombPrefab);
+    }
+
+    public void SpawnBombOnRandomCorner(float inDistance)
+    {
+        Vector2 spawnPos = new Vector2(-50, 50);
+        Instantiate(bombPrefab, spawnPos, Quaternion.identity);
+
+        Vector2 spawnPos1 = new Vector2(50, 50);
+        Instantiate(bombPrefab, spawnPos1, Quaternion.identity);
+
+        Vector2 spawnPos2 = new Vector2(50, -50);
+        Instantiate(bombPrefab, spawnPos2, Quaternion.identity);
+
+        Vector2 spawnPos3 = new Vector2(-50, -50);
+        Instantiate(bombPrefab, spawnPos3, Quaternion.identity);
     }
 
 }
