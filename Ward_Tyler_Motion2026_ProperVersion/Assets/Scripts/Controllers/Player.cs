@@ -99,6 +99,9 @@ public class Player : MonoBehaviour
         //AND THEN SET THE AMOUNT TO ACCELERATE BY:
         currentVelocity += accelerationDirection.normalized * currentAcceleration * Time.deltaTime;
 
+
+
+
         //player controller (cont)
         if(currentVelocity.magnitude > maxSpeed)
         {
@@ -106,6 +109,18 @@ public class Player : MonoBehaviour
         }
 
         transform.position = transform.position + currentVelocity * Time.deltaTime;
+
+        //Thought Process Task 1C
+        //if (Keyboard.current.leftArrowKey.wasReleasedThisFrame)
+        //{
+        //    accelerationDirection -= Vector3.left;
+        //}
+
+        //if (accelerationDirection = Vector3.zero):
+        //{
+        //    currentVelocity += accelerationDirection.normalized * currentDeceleraion * Time.deltaTime;
+        //}
+
     }
 
 }
