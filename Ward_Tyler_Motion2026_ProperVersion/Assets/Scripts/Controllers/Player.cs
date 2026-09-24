@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public float accelerationTime;
     public float decelerationTime;
     public float currentAcceleration;
+    public float currentDeceleration;
      
     void Update()
     {
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour
     {
         //basic acceleration
         currentAcceleration = maxSpeed / accelerationTime;
-        decelerationTime = maxSpeed / decelerationTime;
+        currentDeceleration = maxSpeed / decelerationTime;
         //transform.position = warpPoint * Time.deltaTime;
     }
 
@@ -99,11 +100,15 @@ public class Player : MonoBehaviour
         //AND THEN SET THE AMOUNT TO ACCELERATE BY:
         currentVelocity += accelerationDirection.normalized * currentAcceleration * Time.deltaTime;
 
-
-
-
+        //Deceleration
+        if (accelerationDirection == Vector3.zero)
+        {
+            currentVelocity += currentDeceleration * -currentVelocity.normalized * Time.deltaTime;
+        }
+        //currentVelocity += currentDeceleration * -currentVelocity.normalized * Time.deltaTime;
+        
         //player controller (cont)
-        if(currentVelocity.magnitude > maxSpeed)
+        if (currentVelocity.magnitude > maxSpeed)
         {
             currentVelocity = currentVelocity.normalized * maxSpeed;
         }
