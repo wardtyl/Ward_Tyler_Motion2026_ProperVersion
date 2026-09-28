@@ -159,8 +159,9 @@ MonoBehaviour:
   - 280
   - 320
   - 360
-  circleRadius: 0
+  circleRadius: 2
   circleOffset: {x: 0, y: 0, z: 0}
+  shiftDuration: 0.05
 --- !u!4 &1243311214
 Transform:
   m_ObjectHideFlags: 0

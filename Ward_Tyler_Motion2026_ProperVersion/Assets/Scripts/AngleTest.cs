@@ -10,9 +10,15 @@ public class AngleTest : MonoBehaviour
     public float circleRadius;
     public Vector3 circleOffset;
 
+    public float shiftDuration;
+    private float shiftProgress = 0f;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        //Change between degrees and radians
         //float fortyFiveDegree = 45f;
 
         //float ffDInRadians = fortyFiveDegree * Mathf.Deg2Rad;
@@ -31,7 +37,13 @@ public class AngleTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        //if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        //{
+
+        //}
+
+        shiftProgress += Time.deltaTime;
+        if (shiftProgress > shiftDuration)
         {
             currentAngleIndex++;
 
@@ -39,19 +51,21 @@ public class AngleTest : MonoBehaviour
             {
                 currentAngleIndex = 0;
             }
+            shiftProgress = 0f;
         }
 
 
         float currentAngle = angles[currentAngleIndex];
         float currentAngleInRadians = currentAngle * Mathf.Deg2Rad;
 
-        Vector3 startPoint = Vector3.zero;
+        Vector3 startPoint = Vector3.zero + circleOffset;
         float endPointX = Mathf.Cos(currentAngleInRadians);
         float endPointY = Mathf.Sin(currentAngleInRadians);
-        Vector3 endPoint = new Vector3(endPointX, endPointY);
+
+        //Point on a circle example
+        Vector3 endPoint = new Vector3(endPointX, endPointY) * circleRadius + circleOffset;
 
         Debug.DrawLine(startPoint, endPoint, Color.wheat);
 
     }
 }
-
