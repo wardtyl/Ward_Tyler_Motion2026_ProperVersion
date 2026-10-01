@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
 
     //Week 4
     public List<float> circlePoints;
-    private int currentCirclePointIndex = 0;
     private int nextCirclePointIndex;
     public float radarRadius;
 
@@ -140,7 +139,6 @@ public class Player : MonoBehaviour
         for (int i = 0; i < circlePoints.Count; i++)
         {
             //if statement makes list repeat rather than go on forever
-            currentCirclePointIndex = 0;
             nextCirclePointIndex = i + 1;
 
             if(nextCirclePointIndex >= circlePoints.Count)
