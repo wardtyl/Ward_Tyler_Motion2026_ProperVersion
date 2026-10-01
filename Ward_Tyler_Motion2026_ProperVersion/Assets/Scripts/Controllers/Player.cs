@@ -24,14 +24,15 @@ public class Player : MonoBehaviour
 
     //Week 4
     public List<float> circlePoints;
-    private int currentCirclePoint = 0;
+    private int currentCirclePointIndex = 0;
+    private int nextCirclePointIndex;
     public float radarRadius;
 
     void Update()
     {
 
         PlayerMovement();
-
+        PlayerRadar();
 
         if (Keyboard.current.bKey.wasPressedThisFrame)
             //isPressed, wasPressedThisFrame, wasReleasedThisFrame
@@ -135,11 +136,38 @@ public class Player : MonoBehaviour
 
     public void PlayerRadar()
     {
-        //if()
-        //{
-        //    Debug.DrawLine(Color.red);
-        //}
-        //else()
+    
+        for (int i = 0; i < circlePoints.Count; i++)
+        {
+            //if statement makes list repeat rather than go on forever
+            currentCirclePointIndex = 0;
+            nextCirclePointIndex = i + 1;
+
+            if(nextCirclePointIndex >= circlePoints.Count)
+            {
+                nextCirclePointIndex = 0;
+            } 
+
+            float currentCirclePoint = circlePoints[i];
+            float currentCirclePointInRadians = currentCirclePoint * Mathf.Deg2Rad;
+
+            float nextCirclePoint = circlePoints[nextCirclePointIndex];
+            float nextCirclePointInRadians = nextCirclePoint * Mathf.Deg2Rad;
+
+            float startPointX = Mathf.Cos(currentCirclePointInRadians);
+            float startPointY = Mathf.Sin(currentCirclePointInRadians);
+
+            Vector3 startPoint = new Vector3(startPointX, startPointY) * radarRadius + transform.position;
+
+            float endPointX = Mathf.Cos(nextCirclePointInRadians);
+            float endPointY = Mathf.Sin(nextCirclePointInRadians);
+
+            Vector3 endPoint = new Vector3(endPointX, endPointY) * radarRadius + transform.position;
+
+            Debug.DrawLine(startPoint, endPoint, Color.red);
+        }
+
+        //for ()
         //{
         //    Debug.DrawLine(Color.green);
         //}
