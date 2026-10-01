@@ -21,7 +21,12 @@ public class Player : MonoBehaviour
     public float decelerationTime;
     public float currentAcceleration;
     public float currentDeceleration;
-     
+
+    //Week 4
+    public List<float> circlePoints;
+    private int currentCirclePoint = 0;
+    public float radarRadius;
+
     void Update()
     {
 
@@ -130,7 +135,14 @@ public class Player : MonoBehaviour
 
     public void PlayerRadar()
     {
-        
+        //if()
+        //{
+        //    Debug.DrawLine(Color.red);
+        //}
+        //else()
+        //{
+        //    Debug.DrawLine(Color.green);
+        //}
     }
 
 }
