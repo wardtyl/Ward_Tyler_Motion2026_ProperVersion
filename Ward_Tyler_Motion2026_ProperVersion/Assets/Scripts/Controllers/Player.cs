@@ -23,9 +23,14 @@ public class Player : MonoBehaviour
     public float currentDeceleration;
 
     //Week 4
+    //task 1
     public List<float> circlePoints;
     private int nextCirclePointIndex;
     public float radarRadius;
+    //task 2
+    public List<GameObject> numberOfPowerups;
+    public float radius;
+    private int nextPowerupIndex;
 
     void Update()
     {
@@ -171,8 +176,32 @@ public class Player : MonoBehaviour
         //}
     }
 
-    public void SpawnPowerups(float radius, int numberOfPowerups)
-    {
+    //public void SpawnPowerups(float radius, int numberOfPowerups)
+    //{
+        
 
-    }
+    //    for (int i = 0; i < numberOfPowerups.Count; i++)
+    //    {
+    //        float currentNumberOfPowerups = numberOfPowerups[i];
+    //        float currentNumberOfPowerupsInRadians = currentNumberOfPowerups * Mathf.Deg2Rad;
+
+    //        float nextNumberOfPowerups = numberOfPowerups[nextPowerupIndex];
+    //        float nextNumberOfPowerupsInRadians = nextNumberOfPowerups * Mathf.Deg2Rad;
+
+    //        float startPointX = Mathf.Cos(currentNumberOfPowerupsInRadians);
+    //        float startPointY = Mathf.Sin(currentNumberOfPowerupsInRadians);
+
+    //        Vector3 startPoint = new Vector3(startPointX, startPointY) * radius + transform.position;
+
+    //        float endPointX = Mathf.Cos(nextNumberOfPowerupsInRadians);
+    //        float endPointY = Mathf.Sin(nextNumberOfPowerupsInRadians);
+
+    //        Vector3 endPoint = new Vector3(endPointX, endPointY) * radius + transform.position;
+
+    //        Instantiate(powerupPrefab, startPoint, endPoint, Quaternion.identity);
+
+    //        //Instead of using debug.drawline I think I need to cos and sin to establish a start point and endpoint,
+    //        //then use said positions within instantiate (though I don't think I can do this with instantiate syntax)
+    //    }
+    //}
 }
