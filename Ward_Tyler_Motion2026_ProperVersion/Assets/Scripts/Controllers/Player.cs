@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public List<GameObject> numberOfPowerups;
     public float radius;
     private int nextPowerupIndex;
+    public GameObject powerupPrefab;
 
     void Update()
     {
@@ -178,7 +179,7 @@ public class Player : MonoBehaviour
 
     //public void SpawnPowerups(float radius, int numberOfPowerups)
     //{
-        
+
 
     //    for (int i = 0; i < numberOfPowerups.Count; i++)
     //    {
