@@ -171,4 +171,8 @@ public class Player : MonoBehaviour
         //}
     }
 
+    public void SpawnPowerups(float radius, int numberOfPowerups)
+    {
+
+    }
 }
