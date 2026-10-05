@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public List<float> circlePoints;
     private int nextCirclePointIndex;
     public float radarRadius;
+
     //task 2
     public List<GameObject> numberOfPowerups;
     public float radius;
