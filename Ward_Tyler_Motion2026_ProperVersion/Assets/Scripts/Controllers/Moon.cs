@@ -8,7 +8,7 @@ public class Moon : MonoBehaviour
     public GameObject orbitalSystemPrefab;
     public Transform planetTransform;
     public List<float> angles;
-    private int currentAngleIndex = 0;
+    //private int currentAngleIndex = 0;
     public float radius;
     public float speed;
 
