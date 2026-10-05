@@ -43,6 +43,7 @@ public class SolveForAngle : MonoBehaviour
 
     //convert from vector to angle based around the x-axis
     //static allows to use method in other scripts
+    //Rotation
     public static float VectorToAngle(Vector3 inVector)
     {
         float angle = Mathf.Atan2(inVector.y, inVector.x) * Mathf.Rad2Deg;
@@ -51,6 +52,7 @@ public class SolveForAngle : MonoBehaviour
         return angle - 90f;
     }
 
+    //Dot Product
     public static float VectorDot(Vector3 a, Vector3 b)
     {
         float dotProduct = a.x * b.x + a.y * b.y;
