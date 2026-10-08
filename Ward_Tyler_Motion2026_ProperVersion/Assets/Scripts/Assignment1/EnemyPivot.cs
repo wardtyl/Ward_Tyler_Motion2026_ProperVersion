@@ -30,7 +30,7 @@ public class EnemyPivot : MonoBehaviour
             //bounds of sightline 
             if (dotProductEnemyRange > positiveRange || dotProductEnemyRange < negativeRange)
             {
-                //if out of range stop moving 
+                //if out of range stop moving  
             }
             else
             {
