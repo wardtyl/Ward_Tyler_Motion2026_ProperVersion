@@ -22,7 +22,7 @@ public class EnemyPivot : MonoBehaviour
 
         if(dotProductOfRight > 1 || dotProductOfRight < -1)
         {
-            //transform.eulerAngles = Vector3.zero * rotationSpeed * Time.deltaTime;
+            transform.eulerAngles = Vector3.zero * rotationSpeed * Time.deltaTime;
         }
         else
         {
