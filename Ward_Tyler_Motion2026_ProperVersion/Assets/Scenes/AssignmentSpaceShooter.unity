@@ -723,6 +723,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPivot
   targetTransform: {fileID: 1148396531}
   rotationSpeed: 50
+  positiveRange: 3
+  negativeRange: -3
 --- !u!1 &993317070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,6 +1487,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPivot
   targetTransform: {fileID: 1148396531}
   rotationSpeed: 50
+  positiveRange: 3
+  negativeRange: -3
 --- !u!1 &1779979344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,6 +1777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPivot
   targetTransform: {fileID: 1148396531}
   rotationSpeed: 50
+  positiveRange: 3
+  negativeRange: -3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
