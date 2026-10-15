@@ -17,6 +17,8 @@ public class Wormhole : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //when player is within activation range, teleport player according to the 
+        //target portal and the offset
         if(Vector3.Distance(transform.position, player.position) < activationRange)
         {
             player.position = targetPortal.position + offset;

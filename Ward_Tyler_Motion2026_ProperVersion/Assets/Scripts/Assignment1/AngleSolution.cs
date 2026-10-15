@@ -13,13 +13,6 @@ public class AngleSolution : MonoBehaviour
     {
         
     }
-    public static float VectorToAngle(Vector3 inVector)
-    {
-        float angle = Mathf.Atan2(inVector.y, inVector.x) * Mathf.Rad2Deg;
-
-        //-90f accounts for unity rotation
-        return angle - 90f;
-    }
 
     //Dot Product
     public static float VectorDot(Vector3 a, Vector3 b)
