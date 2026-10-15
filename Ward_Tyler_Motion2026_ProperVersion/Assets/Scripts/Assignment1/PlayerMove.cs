@@ -25,6 +25,7 @@ public class PlayerMove : MonoBehaviour
 
     void MovePlayer()
     {
+        //Acceleration + input
         Vector3 accelerationDirection = Vector3.zero;
         if (Keyboard.current.leftArrowKey.isPressed)
         {
