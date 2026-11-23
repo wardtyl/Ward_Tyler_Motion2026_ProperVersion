@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed;
     public float accelerationTime;
     private float acceleration;
+    public float decelerationTime;
+    public float currentDeceleration;
+   
     public enum FacingDirection
     {
         //defining as values
@@ -19,6 +23,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         acceleration = maxSpeed / accelerationTime;
+        currentDeceleration = maxSpeed / decelerationTime;
     }
 
     // Update is called once per frame
@@ -45,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void MovementUpdate(Vector2 playerInput)
     {
+        //Vector3 accelerationDirection = Vector3.zero;
         Vector2 newVelocity = playerRB.linearVelocity;
         if (playerInput.x != 0)
         {
@@ -53,28 +59,49 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            //????
+            ///???
         }
         playerRB.linearVelocity = newVelocity;
-        
+
+
+        //if (accelerationDirection == Vector3.zero)
+        //{
+        //    newVelocity += currentDeceleration * -newVelocity.normalized * Time.deltaTime;
+        //}
+
+        //if (newVelocity.magnitude > maxSpeed)
+        //{
+        //    newVelocity = newVelocity.normalized * maxSpeed;
+        //}
+
+        //transform.position = transform.position + newVelocity * Time.deltaTime;
     }
 
     public bool IsWalking()
     {
         //if statement return true when input
+        
+        {
+            return true;
+        }
 
         //return false when no input
-        return false;
+        
+        {
+            return false;
+        }
     }
     public bool IsGrounded()
     {
         //use raycast in slides to detect ground
+
         return true;
     }
 
     public FacingDirection GetFacingDirection()
     {
         //if input left
+        
         return FacingDirection.left;
 
         //if input right FacingDirection.right
