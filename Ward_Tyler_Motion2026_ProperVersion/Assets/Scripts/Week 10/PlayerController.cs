@@ -3,107 +3,79 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D playerRB;
-    public float maxSpeed;
-    public float accelerationTime;
-    private float acceleration;
-    public float decelerationTime;
-    public float currentDeceleration;
-   
     public enum FacingDirection
     {
-        //defining as values
         left, right
     }
+
+    public float apexHeight;
+    public float apexTime;
+    public Rigidbody2D playerRB;
+    float gravity;
+    float initialJumpVelocity;
+    private bool wasJumpTriggered = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        acceleration = maxSpeed / accelerationTime;
-        currentDeceleration = maxSpeed / decelerationTime;
+        gravity = -2 * apexHeight / (apexTime * apexTime);
+        initialJumpVelocity = 2 * apexHeight / apexTime;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //The input from the player needs to be determined and then passed in the to the MovementUpdate which should
         //manage the actual movement of the character.
-
-        //add deceleration
         Vector2 playerInput = new Vector2();
-
-        if (Keyboard.current.rightArrowKey.isPressed)
-        {
-            playerInput.x += 1f;
-        }
-        if (Keyboard.current.leftArrowKey.isPressed)
-        {
-            playerInput.x += -1f;
-        }
-
-
         MovementUpdate(playerInput);
+    }
+
+    void Update()
+    {
+        //If the player provides input for a jump, give them the initial jump velocity
+        if (Keyboard.current.upArrowKey.wasPressedThisFrame)
+        {
+            wasJumpTriggered = true;
+        }
     }
 
     private void MovementUpdate(Vector2 playerInput)
     {
-        //Vector3 accelerationDirection = Vector3.zero;
-        Vector2 newVelocity = playerRB.linearVelocity;
-        if (playerInput.x != 0)
+        //need walking, rb stuff for jumping
+
+        Vector2 currentVelocity = playerRB.linearVelocity;
+
+        //Apply the gravity that we calculate over time
+        currentVelocity.y += gravity * Time.fixedDeltaTime;
+
+        //
+        if (wasJumpTriggered)
         {
-            //accelerate
-            newVelocity += playerInput * acceleration * Time.deltaTime;
+            currentVelocity.y = initialJumpVelocity;
+            wasJumpTriggered = false;
         }
-        else
-        {
-            ///???
-        }
-        playerRB.linearVelocity = newVelocity;
 
 
-        //if (accelerationDirection == Vector3.zero)
-        //{
-        //    newVelocity += currentDeceleration * -newVelocity.normalized * Time.deltaTime;
-        //}
 
-        //if (newVelocity.magnitude > maxSpeed)
-        //{
-        //    newVelocity = newVelocity.normalized * maxSpeed;
-        //}
-
-        //transform.position = transform.position + newVelocity * Time.deltaTime;
+        playerRB.linearVelocity = currentVelocity;
     }
 
     public bool IsWalking()
     {
-        //if statement return true when input
-        
-        {
-            return true;
-        }
-
-        //return false when no input
-        
-        {
-            return false;
-        }
+        return false;
     }
     public bool IsGrounded()
     {
-        //use raycast in slides to detect ground
-
         return true;
     }
 
     public FacingDirection GetFacingDirection()
     {
-        //if input left
-        
         return FacingDirection.left;
-
-        //if input right FacingDirection.right
     }
 }
